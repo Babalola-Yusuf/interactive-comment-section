@@ -10,10 +10,10 @@ function Replies({j, i=1}) {
     let content = jsonData.comments[i].replies[j].content;
     let replyingTo = jsonData.comments[i].replies[j].replyingTo;
     return(
-        <div className=" bg-white flex items-start p-6 gap-6 rounded-lg mb-6">
+        <div className="bg-white sm:flex items-start p-6 gap-6 rounded-lg mb-6 relative h-56 md:h-44">
            <Score i={j}></Score> 
-           <div className="flex flex-col gap-6">
-                <div className="flex justify-between"> 
+           
+                <div className="flex justify-between absolute md:left-20 "> 
                     <div className="flex">
                     <div className="flex gap-6">
                         <div className="w-8">
@@ -25,12 +25,12 @@ function Replies({j, i=1}) {
                     </div>
                     </div>
                     
-                        <ReplyBtn></ReplyBtn>
                 </div>
-                <p className=" text-Grayish-Blue"><span className=" text-Moderate-blue font-semibold">@{replyingTo}</span>{content}</p>
-           </div>
+                <p className=" text-Grayish-Blue absolute md:left-20 top-14 bottom-5"><span className=" text-Moderate-blue font-semibold">@{replyingTo}</span>{content}</p>
           
-            
+                <div className="absolute bottom-6 md:top-6 right-6">
+                <ReplyBtn></ReplyBtn>
+            </div>  
         </div>
     )
     }
